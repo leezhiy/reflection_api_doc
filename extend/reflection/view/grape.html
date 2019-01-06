@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{$title}</title>
+    <title>{$title|raw}</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -47,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="../" class="navbar-brand">{$title}</a>
+            <a href="../" class="navbar-brand">{$title|raw}</a>
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -74,13 +74,13 @@
 
             <div class="bs-docs-section">
                 {foreach name="list" item="vol" key="key"}
-                <h1 id="{$vol.param}" class="page-header">{$vol.title}</h1>
-                <p class="lead"><code>{$vol.class}</code></p>
+                <h1 id="{$vol.param}" class="page-header">{$vol.title|raw}</h1>
+                <p class="lead"><code>{$vol.class|raw}</code></p>
                 {foreach name="$vol.method" item="vo" key="k"}
-                <h3 id="#{$key}-{$k}-{$vo.name}">{$k+1}. {$vo.title}</h3>
-                <p>方法名: <code>{$vo.name}()</code></p>
+                <h3 id="#{$key}-{$k}-{$vo.name}">{$k+1}. {$vo.title|raw}</h3>
+                <p>方法名: <code>{$vo.name|raw}()</code></p>
                 <div class="bs-callout bs-callout-info">
-                    <p>{$vo.desc}</p>
+                    <p>{$vo.desc|raw}</p>
                 </div>
 
                 <h4>接收参数</h4>
@@ -99,11 +99,11 @@
                         <tbody>
                         {foreach name="$vo.params" item="v"}
                         <tr>
-                            <th scope="row">{$v.name}</th>
-                            <td class="text-success">{$v.type}</td>
-                            <td class="text-success">{$v.require}</td>
-                            <td class="text-muted">{$v.default}</td>
-                            <td class="text-muted">{$v.desc}</td>
+                            <th scope="row">{$v.name|raw}</th>
+                            <td class="text-success">{$v.type|raw}</td>
+                            <td class="text-success">{$v.require|raw}</td>
+                            <td class="text-muted">{$v.default|raw}</td>
+                            <td class="text-muted">{$v.desc|raw}</td>
                         </tr>
                         {/foreach}
                         </tbody>
@@ -125,10 +125,10 @@
                         <tbody>
                         {foreach name="$vo.returns" item="v"}
                         <tr>
-                            <th scope="row">{$v.name}</th>
-                            <td class="text-success">{$v.type}</td>
-                            <td class="text-success">{$v.required}</td>
-                            <td class="text-muted">{$v.detail}</td>
+                            <th scope="row">{$v.name|raw}</th>
+                            <td class="text-success">{$v.type|raw}</td>
+                            <td class="text-success">{$v.required|raw}</td>
+                            <td class="text-muted">{$v.detail|raw}</td>
                         </tr>
                         {/foreach}
                         </tbody>
@@ -145,10 +145,10 @@
                 <ul class="nav bs-docs-sidenav">
                     {foreach name="list" item="vol" key="key"}
                     <li>
-                        <a href="#{$vol.param}">{$vol.title}</a>
+                        <a href="#{$vol.param}">{$vol.title|raw}</a>
                         <ul class="nav">
                             {foreach name="$vol.method" item="vo" key="k"}
-                            <li><a href="#{$key}-{$k}-{$vo.name}">{$vo.title}</a></li>
+                            <li><a href="#{$key}-{$k}-{$vo.name}">{$vo.title|raw}</a></li>
                             {/foreach}
                         </ul>
                     </li>
